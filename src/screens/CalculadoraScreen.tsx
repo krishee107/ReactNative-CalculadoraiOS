@@ -11,8 +11,28 @@ export const CalculadoraScreen = () => {
         setNumero('0');
     }
     const armarNumero = (numeroTexto: string) => {
-
-        setNumero(numero + numeroTexto)
+        //No aceptar dos puntos
+        if (numero.includes('.') && numeroTexto === '.') return;
+        if (numero.startsWith('0') || numero.startsWith('-0')) {
+            //Punto decimal
+            if (numeroTexto === '.') {
+                setNumero(numero + numeroTexto);
+            }
+            //Evaluar si es otro cero y hay un punto
+            else if (numeroTexto === '0' && numero.includes('.')) {
+                setNumero(numero + numeroTexto)
+            }
+            //Evaluar si es diferente de cero y no tiene punto
+            else if (numeroTexto !== '0' && !numero.includes('.')) {
+                setNumero(numeroTexto);
+            }
+            //Evitar 0000.0
+            else if (numeroTexto === '0' && !numero.includes('.')) {
+                setNumero(numero);
+            }
+        }
+        else
+            setNumero(numero + numeroTexto)
     }
     const positivoNegativo = () => {
         if (numero.includes("-")) {
