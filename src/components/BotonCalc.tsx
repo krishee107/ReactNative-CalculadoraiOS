@@ -14,7 +14,13 @@ export const BotonCalc = ({ texto, color = "#2d2d2d" }: Props) => {
                 backgroundColor: color
             }}
         >
-            <Text style={styles.botonTexto}>{texto}</Text>
+            <Text style={{
+                ...styles.botonTexto,
+                color: (color === "#9b9b9b") ? 'black' : 'white'
+            }}
+            >
+                {texto}
+            </Text>
         </View>
     )
 }
@@ -30,7 +36,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 10,
         fontSize: 30,
-        color: 'white',
         fontWeight: '300'
     }
 });
