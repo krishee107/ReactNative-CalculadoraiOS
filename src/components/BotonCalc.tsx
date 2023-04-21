@@ -3,15 +3,17 @@ import { StyleSheet, Text, View } from 'react-native'
 interface Props {
     texto: string,
     color?: string,
+    ancho?: boolean
 };
 
-export const BotonCalc = ({ texto, color = "#2d2d2d" }: Props) => {
+export const BotonCalc = ({ texto, color = "#2d2d2d", ancho = false }: Props) => {
 
     return (
         <View
             style={{
                 ...styles.boton,
-                backgroundColor: color
+                backgroundColor: color,
+                width: ancho ? 180 : 80
             }}
         >
             <Text style={{
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
         width: 80,
         borderRadius: 100,
         justifyContent: "center",
+        marginHorizontal: 10
     },
     botonTexto: {
         textAlign: "center",
