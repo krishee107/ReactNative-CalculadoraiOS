@@ -1,12 +1,24 @@
 import { Text, View } from "react-native"
 import { styles } from "../theme/appTheme"
 import { BotonCalc } from "../components/BotonCalc"
-import { useRef, useState } from "react"
 import { useCalculadora } from '../hooks/useCalculadora';
 
 
 export const CalculadoraScreen = () => {
-    const {numero, numeroAnterior, limpiar, positivoNegativo, btnSumar, btnDelete, btnDividir, btnMultiplicar, btnRestar, armarNumero, calcular, cambiaNumPorAnterior, ultimaOperacion} = useCalculadora();
+    const {
+        numero, 
+        numeroAnterior, 
+        ultimaOperacion,
+        limpiar, 
+        positivoNegativo, 
+        btnSumar, 
+        btnDelete, 
+        btnDividir, 
+        btnMultiplicar, 
+        btnRestar, 
+        armarNumero, 
+        calcular, 
+    } = useCalculadora();
 
     return (
         <View style={styles.calculadoraContainer}>
