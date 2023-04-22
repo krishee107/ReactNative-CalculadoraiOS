@@ -94,6 +94,28 @@ const btnRestar = () =>{
     
 }
 
+const calcular = () =>{
+    const num1 = Number(numero);
+    const num2 = Number(numeroAnterior);
+
+    switch (ultimaOperacion.current) {
+        case Operadores.suma:
+            setNumero(`${num1+num2}`);
+            break;
+        case Operadores.resta:
+            setNumero(`${num2-num1}`);
+            break;  
+        case Operadores.multiplicar:
+            setNumero(`${num1*num2}`);
+            break;  
+        case Operadores.dividir:
+            setNumero(`${num2/num1}`);
+            break;
+    }
+    
+    setNumeroAnterior('0');
+}
+
     return (
         <View style={styles.calculadoraContainer}>
             {
@@ -135,7 +157,7 @@ const btnRestar = () =>{
             <View style={styles.fila}>
                 <BotonCalc texto="0" ancho={true} accion={armarNumero} />
                 <BotonCalc texto="." accion={armarNumero} />
-                <BotonCalc texto="=" color="#ff9427" accion={limpiar} />
+                <BotonCalc texto="=" color="#ff9427" accion={calcular} />
             </View>
         </View>
     )
