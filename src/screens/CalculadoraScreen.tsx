@@ -96,7 +96,10 @@ const btnRestar = () =>{
 
     return (
         <View style={styles.calculadoraContainer}>
-            <Text style={styles.resultadoPequeno}>{numeroAnterior}</Text>
+            {
+                numeroAnterior !=='0' &&
+                    (<Text style={styles.resultadoPequeno}>{numeroAnterior}</Text>)
+            }
             <Text
                 style={styles.resultado}
                 numberOfLines={1}
